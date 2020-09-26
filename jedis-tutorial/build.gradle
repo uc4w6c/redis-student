@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation "redis.clients:jedis:3.3.0"
+}
+
+mainClassName = 'App'
+jar {
+    manifest {
+        attributes 'Main-Class': "App"
+    }
+    from configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+}
