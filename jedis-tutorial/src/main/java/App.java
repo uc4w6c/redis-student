@@ -5,9 +5,11 @@ public class App {
         System.out.println("Start");
 
         Jedis jedis = new Jedis("localhost", 6379);
-        jedis.set("foo", "bar");
-        String value = jedis.get("foo");
-        System.out.println("value: " + value);
+
+        System.out.println("Plane Set Start");
+        PlaneSet planeSet = new PlaneSet(jedis);
+        planeSet.run();
+        System.out.println("Plane Set End");
 
         System.out.println("End");
     }
