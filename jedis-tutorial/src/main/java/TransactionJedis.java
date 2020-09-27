@@ -38,7 +38,7 @@ public class TransactionJedis {
         Transaction t3 = jedis.multi();
         System.out.println("wait 10 seconds");
         t3.incr("counter");
-        // ここで別クライアントで更新するとエラー発生
+        // ここで別クライアントで更新するとエラー発生？エラーは出ず更新されないだけかも。
         try {
             Thread.sleep(10_000L);
         } catch (InterruptedException e) {}
