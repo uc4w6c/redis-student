@@ -36,6 +36,24 @@ public class App {
         listSet.run();
         System.out.println("List Set End");
 
+        System.out.println("-------");
+        System.out.println("Set Jedis Start");
+        SetJedis setJedis = new SetJedis(jedis);
+        setJedis.run();
+        System.out.println("Set Jedis End");
+
+        System.out.println("-------");
+        System.out.println("ZSet Jedis Start");
+        ZSetJedis zSetJedis = new ZSetJedis(jedis);
+        zSetJedis.run();
+        System.out.println("ZSet Jedis End");
+
+        System.out.println("-------");
+        System.out.println("Transaction Jedis Start");
+        TransactionJedis transactionJedis = new TransactionJedis(jedis);
+        transactionJedis.run();
+        System.out.println("Transaction Jedis End");
+
         System.out.println("End");
     }
 }
